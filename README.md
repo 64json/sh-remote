@@ -1,9 +1,7 @@
 # sh-remote
-CLI for executing a bash shell script with URL (for Linux/Unix)
+It helps you run a bash shell script with URL quickly, by automatically downloading and running the script.
 
-It helps you run a bash shell script with URL quickly, by automatically downloading and running the script at once.
-
-**NOTE** that this command doesn't run the remote script on the remote server.
+**NOTE** that this command does **NOT** run the script on the remote server.
 
 ### Installation
 ```console
