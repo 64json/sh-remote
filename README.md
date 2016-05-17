@@ -5,7 +5,7 @@ It helps you run a bash shell script with URL quickly, by automatically download
 
 ### Installation
 ```console
-$ curl -fsSL https://git.io/sh-remote | sh
+$ curl -fsSL https://git.io/sh-remote | bash
 ```
 
 ### Usage
