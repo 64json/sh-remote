@@ -6,7 +6,7 @@ args=("$@")
 if (( ${#args[@]} == 1 )); then
 	case "$1" in
 		-V|--version)
-			echo $VERSION	
+			echo sh-remote version $VERSION	
 			exit
 			;;
 	esac
