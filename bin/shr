@@ -18,7 +18,7 @@ for ((i=0; i<${#args[@]}; i++)); do
 	if [[ ${args[i]} =~ $regex ]]
 	then
 		src=$i
-    	break
+		break
 	fi
 done
 
