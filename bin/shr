@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-VERSION="1.0.0"
+VERSION="1.0.1"
 
 args=("$@")
 if (( ${#args[@]} == 1 )); then
@@ -39,4 +39,4 @@ else
 	fi
 fi
 
-sh ${args[@]}
+bash ${args[@]}
