@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -e
+VERSION="1.0.0"
+
+args=("$@")
+if (( ${#args[@]} == 1 )); then
+	case "$1" in
+		-V|--version)
+			echo $VERSION	
+			exit
+			;;
+	esac
+fi
+
+regex='(https?)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+src=-1
+for ((i=0; i<${#args[@]}; i++)); do
+	if [[ ${args[i]} =~ $regex ]]
+	then
+		src=$i
+    	break
+	fi
+done
+
+if (( $src < 0 )); then
+	echo shr: there is no valid URL
+	exit 1
+else
+	URL=${args[src]}
+	TMPDIR=`mktemp -d`
+	trap "rm -rf $TMPDIR" EXIT
+	SCRIPT=$TMPDIR/script
+
+	if curl -s -f "$URL" -o $SCRIPT; then
+		args[i]=$SCRIPT
+	else
+		echo shr: file does not exist on the remote URL
+		exit 1
+	fi
+fi
+
+sh ${args[@]}
